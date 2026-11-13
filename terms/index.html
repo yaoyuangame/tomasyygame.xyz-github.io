@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — Tomasyy game</title>
+<meta name="description" content="Terms of Service for Tomasyy game titles and products.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Libre+Franklin:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#E9E3D5; --paper-2:#E2DBCA; --paper-hi:#F2EDE1;
+    --ink:#14110E; --ink-2:#3A342B; --muted:#6B6252;
+    --rule:#B3A88F; --rule-2:#8C8271; --red:#A82C22;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:var(--paper);
+    background-image:
+      radial-gradient(rgba(20,17,14,.035) .6px, transparent .6px),
+      radial-gradient(rgba(20,17,14,.025) .6px, transparent .6px);
+    background-size:5px 5px, 11px 11px;
+    background-position:0 0, 3px 4px;
+    color:var(--ink);
+    font-family:'Source Serif 4',Georgia,serif;
+    font-size:16px;font-weight:400;line-height:1.68;-webkit-font-smoothing:antialiased;
+  }
+  h1,h2{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-height:1.1;letter-spacing:-.012em}
+  .wrap{max-width:860px;margin:0 auto;padding:0 26px}
+
+  .strip{border-bottom:1px solid var(--rule);background:var(--paper-2)}
+  .strip .wrap{display:flex;justify-content:space-between;align-items:center;height:36px;gap:14px}
+  .strip span{font-family:'Libre Franklin',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .strip .mid{color:var(--red)}
+
+  .masthead{padding:22px 0 0}
+  .masthead .rules{border-top:3px solid var(--ink);border-bottom:1px solid var(--ink);padding:12px 0 10px;display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+  .masthead h1{font-size:1.25rem;font-weight:900;text-transform:uppercase;letter-spacing:-.01em}
+  .masthead .back{font-family:'Libre Franklin',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+  .masthead .back:hover{color:var(--red)}
+
+  .head{padding:38px 0 24px;border-bottom:3px double var(--ink)}
+  .kicker{display:inline-block;font-family:'Libre Franklin',sans-serif;font-size:.64rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--paper-hi);background:var(--ink);padding:5px 11px;margin-bottom:14px}
+  h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:900;margin-bottom:12px}
+  .meta{font-family:'Libre Franklin',sans-serif;font-size:.64rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+  main{padding:32px 0 60px}
+  .intro{
+    border-left:3px solid var(--ink);background:var(--paper-hi);
+    padding:18px 22px;margin-bottom:32px;color:var(--ink-2);font-size:.95rem;
+  }
+  .caps{
+    display:block;margin-top:14px;padding-top:14px;border-top:1px solid var(--rule);
+    font-family:'Libre Franklin',sans-serif;font-size:.76rem;font-weight:600;line-height:1.62;letter-spacing:.01em;color:var(--ink);
+  }
+  .blk{margin-bottom:28px}
+  .blk h2{font-size:1.12rem;font-weight:700;margin-bottom:10px;display:flex;align-items:baseline;gap:12px;padding-bottom:7px;border-bottom:1px solid var(--rule)}
+  .blk h2 .n{font-family:'Libre Franklin',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.14em;color:var(--red)}
+  .blk .c{padding-left:2px}
+  p{margin-bottom:10px;color:var(--ink-2);font-size:.95rem;text-align:justify}
+  p:last-child{margin-bottom:0}
+  ul{list-style:none;margin:8px 0 0}
+  li{position:relative;padding-left:20px;margin-bottom:9px;color:var(--ink-2);font-size:.95rem}
+  li:before{content:"—";position:absolute;left:0;color:var(--ink);font-weight:700}
+  li:last-child{margin-bottom:0}
+  strong{color:var(--ink);font-weight:600}
+  .notice{
+    border:1px solid var(--red);border-left-width:4px;background:var(--paper-hi);
+    padding:16px 20px;color:var(--ink-2);font-size:.94rem;
+  }
+
+  .contactbox{border:1px solid var(--ink);margin-top:38px}
+  .contactbox .top{border-bottom:1px solid var(--ink);background:var(--ink);color:var(--paper-hi);padding:9px 16px;font-family:'Libre Franklin',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+  .contactbox .body{padding:26px 24px;text-align:center;background:var(--paper-hi)}
+  .contactbox h2{font-size:1.3rem;font-weight:900;margin-bottom:12px}
+  .contactbox p{color:var(--ink-2);margin-bottom:16px;text-align:center}
+  .contactbox .ent{font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;margin-bottom:14px}
+  .contactbox .mbox{display:inline-block;border:1px dashed var(--rule-2);padding:12px 22px;background:var(--paper)}
+  .contactbox a{font-family:'Libre Franklin',sans-serif;font-size:.88rem;font-weight:600;word-break:break-all;border-bottom:1px solid var(--red)}
+  .contactbox a:hover{color:var(--red)}
+
+  footer{border-top:3px double var(--ink);margin-top:44px;padding:20px 0 36px;background:var(--paper-2)}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;align-items:center}
+  footer .cp,footer nav a{font-family:'Libre Franklin',sans-serif;font-size:.6rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  footer nav{display:flex;gap:20px}
+  footer nav a:hover{color:var(--red)}
+  @media(max-width:600px){.masthead .rules{flex-direction:column;gap:8px}.contactbox .body{padding:22px 18px}}
+</style>
+</head>
+<body>
+
+<div class="strip">
+  <div class="wrap">
+    <span>Tomasyy game</span>
+    <span class="mid">Legal Notice</span>
+    <span>Doc. 02</span>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="rules">
+      <h1>Tomasyy game</h1>
+      <a class="back" href="/">← Return to front page</a>
+    </div>
+  </div>
+</header>
+
+<div class="head">
+  <div class="wrap">
+    <span class="kicker">Terms Notice</span>
+    <h1>Terms of Service</h1>
+    <div class="meta">Effective 13 November 2026</div>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+
+    <div class="intro">
+      <strong>Introduction.</strong> These Terms of Service constitute a legal agreement between you
+      and the developer of Tomasyy game. ("we," "our," or "us").
+      <span class="caps">BY DOWNLOADING, INSTALLING, OR RETAINING A PRODUCT FOR MORE THAN TEN (10) DAYS,
+      YOU AGREE TO BE BOUND BY THESE TERMS. IF YOU DO NOT AGREE WITH THESE TERMS AND CONDITIONS, YOU
+      MAY NOT DOWNLOAD OR USE THE PRODUCT AND MUST DELETE IT IMMEDIATELY.</span>
+    </div>
+
+    <div class="blk">
+      <h2><span class="n">01</span>License</h2>
+      <div class="c">
+        <ul>
+          <li>You acknowledge that you have only a non-exclusive and limited right to use the object code version of the Products for non-commercial purposes within the validity period of the agreement.</li>
+          <li>You may make a single copy of the Products in object code form for archival or backup purposes.</li>
+          <li>You must include all Notices on all copies of the Products.</li>
+          <li>You may not reverse engineer, decompile, or disassemble the Products or attempt to gain access to the source code, except as expressly permitted by applicable law.</li>
+          <li>You may not assign or transfer the Products or any rights or obligations under these Terms without prior written consent from the developer.</li>
+          <li>Your rights under these Terms will automatically terminate if you breach any material obligations. Upon termination, you must destroy all copies of the Products immediately.</li>
+        </ul>
+        <p style="margin-top:12px">All rights not expressly granted are reserved.</p>
+      </div>
+    </div>
+
+    <div class="blk">
+      <h2><span class="n">02</span>Infringement Indemnity</h2>
+      <div class="c">
+        <p>The developer, its affiliates, subsidiaries, or licensors shall not be liable for any claims arising from:</p>
+        <ul>
+          <li>Willful or negligent acts by anyone other than the Products provider.</li>
+          <li>The combination, operation, or use of the Products with any equipment, devices, or software not provided by the developer.</li>
+          <li>Changes or modifications to the Product.</li>
+        </ul>
+        <p style="margin-top:12px">To the fullest extent permitted by law, this section states the entire liability of the developer, its affiliates, subsidiaries, and licensors, as well as your sole remedy for any infringement claims.</p>
+      </div>
+    </div>
+
+    <div class="blk">
+      <h2><span class="n">03</span>Limited Warranty</h2>
+      <div class="c">
+        <p>The developer does not represent or warrant that the Products will operate uninterrupted or error-free, especially in the following cases:</p>
+        <ul>
+          <li>Unauthorized modification or changes to the Products.</li>
+          <li>Accidents, negligence, misuse, or abuse.</li>
+          <li>Exposure to environmental, power, or operating conditions outside the specifications provided by the developer.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="blk">
+      <h2><span class="n">04</span>Disclaimer and Limitation of Liability</h2>
+      <div class="c">
+        <p>Except as expressly set forth in these Terms:</p>
+        <ul>
+          <li>The developer, its affiliates, subsidiaries, or licensors make no other warranties, express or implied, including warranties of merchantability and fitness for a particular purpose.</li>
+          <li>Any implied warranties imposed by law are limited to those contained in these Terms, and to the extent permitted by law, the developer disclaims all other warranties.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="blk">
+      <h2><span class="n">05</span>User Judgment</h2>
+      <div class="c">
+        <ul>
+          <li>Some functions of the Products may cause certain programs, functions, or files to be stopped, deleted, or uninstalled.</li>
+          <li>Before using the Products, you should carefully read the instructions to determine whether they are suitable for your purposes, needs, and safety requirements.</li>
+          <li>Once you install the Product and/or perform any operation, you take full responsibility for its use.</li>
+        </ul>
+        <p style="margin-top:12px">We provide a <a href="/privacy/"><strong>Privacy Policy</strong></a> as an integral part of this agreement, which you must read and agree to before installing and using the Product.</p>
+      </div>
+    </div>
+
+    <div class="blk">
+      <h2><span class="n">06</span>Copyright Policy</h2>
+      <div class="c">
+        <ul>
+          <li>No end user may use the Products to infringe the intellectual property rights of others, including but not limited to patents, trademarks, trade secrets, copyrights, and other proprietary rights.</li>
+          <li>If you are a copyright owner or an authorized representative and believe that any content infringes on your copyright, you may file a notice under the Digital Millennium Copyright Act (DMCA) by providing us with:</li>
+        </ul>
+        <ul>
+          <li>A physical or electronic signature of a person authorized to act on behalf of the owner or agent of the allegedly infringing exclusive right.</li>
+          <li>Identification of the copyrighted work that you claim has been infringed.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="blk">
+      <h2><span class="n">07</span>Disclaimer</h2>
+      <div class="c">
+        <div class="notice">This product is "not suitable for teenagers" as some advertisements may contain broad or inappropriate content.</div>
+      </div>
+    </div>
+
+    <div class="contactbox">
+      <div class="top">Contact Notices</div>
+      <div class="body">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or concerns about these Terms of Service, please contact us at:</p>
+        <div class="ent">Tomasyy game.</div>
+        <div class="mbox"><a href="mailto:razadawarmrn@gmail.com">razadawarmrn@gmail.com</a></div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cp">© 2026 Tomasyy game</div>
+    <nav><a href="/">Front Page</a><a href="/privacy/">Privacy Policy</a></nav>
+  </div>
+</footer>
+
+</body>
+</html>

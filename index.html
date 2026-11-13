@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tomasyy Game — The Studio Broadsheet</title>
+<meta name="description" content="Tomasyy game builds considered casual games for mobile. Published by the studio, for the players.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Libre+Franklin:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#E9E3D5;
+    --paper-2:#E2DBCA;
+    --paper-hi:#F2EDE1;
+    --ink:#14110E;
+    --ink-2:#3A342B;
+    --muted:#6B6252;
+    --rule:#B3A88F;
+    --rule-2:#8C8271;
+    --red:#A82C22;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    background-image:
+      radial-gradient(rgba(20,17,14,.035) .6px, transparent .6px),
+      radial-gradient(rgba(20,17,14,.025) .6px, transparent .6px);
+    background-size:5px 5px, 11px 11px;
+    background-position:0 0, 3px 4px;
+    color:var(--ink);
+    font-family:'Source Serif 4',Georgia,serif;
+    font-size:16.5px;font-weight:400;line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.disp{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-height:1.06;letter-spacing:-.012em}
+  .sans{font-family:'Libre Franklin',Helvetica,Arial,sans-serif}
+  .label{
+    font-family:'Libre Franklin',sans-serif;font-size:.68rem;font-weight:700;
+    letter-spacing:.18em;text-transform:uppercase;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 26px}
+
+  /* ---------- top strip ---------- */
+  .strip{border-bottom:1px solid var(--rule);background:var(--paper-2)}
+  .strip .wrap{display:flex;justify-content:space-between;align-items:center;height:38px;gap:16px}
+  .strip span{font-family:'Libre Franklin',sans-serif;font-size:.64rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .strip .mid{color:var(--red)}
+
+  /* ---------- masthead ---------- */
+  .masthead{padding:26px 0 0}
+  .masthead .rules{border-top:3px solid var(--ink);border-bottom:1px solid var(--ink);padding:14px 0 12px}
+  .masthead h1{
+    font-family:'Playfair Display',serif;font-weight:900;
+    font-size:clamp(2.6rem,9vw,6.4rem);text-align:center;
+    letter-spacing:-.03em;line-height:.9;text-transform:uppercase;
+  }
+  .masthead h1 em{font-style:normal;color:var(--red)}
+  .masthead .tagline{
+    text-align:center;margin-top:10px;
+    font-family:'Libre Franklin',sans-serif;font-size:.7rem;font-weight:600;
+    letter-spacing:.34em;text-transform:uppercase;color:var(--ink-2);
+  }
+  .masthead .thinrule{border-bottom:1px solid var(--rule);margin-top:14px}
+
+  /* nav */
+  .navbar{border-bottom:3px double var(--ink);background:var(--paper)}
+  .navbar .wrap{display:flex;justify-content:center;gap:0;flex-wrap:wrap}
+  .navbar a{
+    font-family:'Libre Franklin',sans-serif;font-size:.68rem;font-weight:700;
+    letter-spacing:.16em;text-transform:uppercase;padding:12px 20px;
+    border-right:1px solid var(--rule);
+  }
+  .navbar a:first-child{border-left:1px solid var(--rule)}
+  .navbar a:hover{color:var(--red);background:var(--paper-hi)}
+
+  /* ---------- lead ---------- */
+  .lead{padding:34px 0 0}
+  .kicker{
+    display:inline-block;font-family:'Libre Franklin',sans-serif;font-size:.66rem;font-weight:700;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--paper-hi);
+    background:var(--red);padding:5px 12px;margin-bottom:16px;
+  }
+  .lead h2{
+    font-size:clamp(2rem,5vw,3.6rem);font-weight:900;max-width:22ch;margin-bottom:16px;
+  }
+  .byline{
+    font-family:'Libre Franklin',sans-serif;font-size:.66rem;font-weight:600;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+    padding-bottom:14px;border-bottom:1px solid var(--rule);margin-bottom:22px;
+  }
+  .byline b{color:var(--ink);font-weight:700}
+
+  .lead .cols{
+    column-count:2;column-gap:38px;column-rule:1px solid var(--rule);
+    margin-bottom:26px;
+  }
+  .lead .cols p{margin-bottom:14px;color:var(--ink-2);text-align:justify;hyphens:auto}
+  .lead .cols p:first-child:first-letter{
+    float:left;font-family:'Playfair Display',serif;font-weight:900;
+    font-size:4.1rem;line-height:.82;padding:6px 10px 0 0;color:var(--red);
+  }
+
+  .cta{display:flex;gap:12px;flex-wrap:wrap;padding-bottom:34px;border-bottom:3px double var(--ink)}
+  .btn{
+    font-family:'Libre Franklin',sans-serif;font-size:.68rem;font-weight:700;
+    letter-spacing:.14em;text-transform:uppercase;padding:13px 24px;
+    border:1px solid var(--ink);transition:background .16s ease,color .16s ease;
+  }
+  .btn.solid{background:var(--ink);color:var(--paper-hi)}
+  .btn.solid:hover{background:var(--red);border-color:var(--red)}
+  .btn:hover{background:var(--ink);color:var(--paper-hi)}
+
+  /* ---------- numbers ---------- */
+  .numbers{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--rule);margin-top:0}
+  .num{padding:24px 20px;border-right:1px solid var(--rule);text-align:center}
+  .num:last-child{border-right:0}
+  .num .v{font-family:'Playfair Display',serif;font-weight:900;font-size:2.2rem;line-height:1;margin-bottom:8px}
+  .num .k{font-family:'Libre Franklin',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+  /* ---------- sections ---------- */
+  section{padding:56px 0 0}
+  .sectionhead{
+    display:flex;align-items:center;gap:16px;border-bottom:2px solid var(--ink);
+    padding-bottom:10px;margin-bottom:26px;
+  }
+  .sectionhead h2{font-size:1.6rem;font-weight:900;text-transform:uppercase;letter-spacing:-.01em}
+  .sectionhead .no{
+    font-family:'Libre Franklin',sans-serif;font-size:.64rem;font-weight:700;letter-spacing:.16em;
+    color:var(--paper-hi);background:var(--ink);padding:4px 9px;flex:none;
+  }
+  .sectionhead .sp{flex:1}
+  .sectionhead .meta{font-family:'Libre Franklin',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+  /* article columns */
+  .col3{column-count:3;column-gap:30px;column-rule:1px solid var(--rule)}
+  .story{break-inside:avoid-column;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+  .story:last-child{border-bottom:0;padding-bottom:0;margin-bottom:0}
+  .story h3{font-size:1.14rem;font-weight:700;margin-bottom:8px}
+  .story .tag{font-family:'Libre Franklin',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:7px}
+  .story p{font-size:.92rem;color:var(--ink-2);text-align:justify}
+
+  /* feature box */
+  .feature{border:1px solid var(--ink);background:var(--paper-hi);margin-top:8px}
+  .feature .top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:10px 16px;background:var(--ink);color:var(--paper-hi)}
+  .feature .top .label{color:var(--paper-hi)}
+  .feature .top .no{font-family:'Libre Franklin',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.16em}
+  .feature .body{display:grid;grid-template-columns:1.15fr .85fr;gap:0}
+  .feature .body .l{padding:26px 24px;border-right:1px solid var(--rule)}
+  .feature .body .l h3{font-size:1.5rem;margin-bottom:12px}
+  .feature .body .l p{font-size:.93rem;color:var(--ink-2);margin-bottom:12px;text-align:justify}
+  .feature .body .r{
+    display:grid;place-items:center;padding:26px;
+    background:
+      repeating-linear-gradient(45deg, rgba(20,17,14,.05) 0 6px, transparent 6px 12px);
+  }
+  .feature .body .r .seal{
+    width:150px;height:150px;border:2px solid var(--red);border-radius:50%;
+    display:grid;place-items:center;text-align:center;
+    font-family:'Playfair Display',serif;font-weight:900;color:var(--red);
+    font-size:1rem;line-height:1.15;letter-spacing:.06em;text-transform:uppercase;
+    transform:rotate(-7deg);
+  }
+  .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+  .tags span{font-family:'Libre Franklin',sans-serif;font-size:.6rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--rule-2);padding:5px 9px;color:var(--ink-2)}
+
+  /* editorial list */
+  .edlist{border-top:2px solid var(--ink)}
+  .edrow{display:grid;grid-template-columns:70px 1fr 1.2fr;gap:0;padding:18px 0;border-bottom:1px solid var(--rule);align-items:baseline}
+  .edrow .n{font-family:'Playfair Display',serif;font-weight:900;font-size:1.1rem;color:var(--red)}
+  .edrow h3{font-size:1.05rem;font-weight:700}
+  .edrow p{font-size:.9rem;color:var(--ink-2);text-align:justify}
+
+  /* pull quote */
+  .pullquote{
+    border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);
+    padding:24px 0;margin:34px 0;text-align:center;
+  }
+  .pullquote p{
+    font-family:'Playfair Display',serif;font-style:italic;font-weight:600;
+    font-size:clamp(1.25rem,2.8vw,1.9rem);line-height:1.32;color:var(--ink);max-width:24ch;margin:0 auto;
+  }
+  .pullquote .src{font-family:'Libre Franklin',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:14px;display:block}
+
+  /* ---------- contact ---------- */
+  .corr{border:1px solid var(--ink);margin-top:10px}
+  .corr .top{border-bottom:1px solid var(--ink);padding:10px 16px;background:var(--ink);color:var(--paper-hi);display:flex;justify-content:space-between}
+  .corr .body{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  .corr .body .l{padding:26px 24px;border-right:1px solid var(--rule)}
+  .corr .body .l h3{font-size:1.4rem;margin-bottom:12px}
+  .corr .body .l p{font-size:.93rem;color:var(--ink-2);text-align:justify}
+  .corr .body .r{padding:26px 24px;display:flex;flex-direction:column;gap:14px;justify-content:center}
+  .adbox{border:1px dashed var(--rule-2);padding:14px 16px;background:var(--paper-hi)}
+  .adbox small{display:block;font-family:'Libre Franklin',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .adbox a{font-family:'Libre Franklin',sans-serif;font-size:.88rem;font-weight:600;word-break:break-all;border-bottom:1px solid var(--red)}
+  .adbox a:hover{color:var(--red)}
+
+  /* ---------- footer ---------- */
+  footer{border-top:3px double var(--ink);margin-top:56px;padding:24px 0 40px;background:var(--paper-2)}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center}
+  footer .cp{font-family:'Libre Franklin',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  footer nav{display:flex;gap:22px}
+  footer nav a{font-family:'Libre Franklin',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+  footer nav a:hover{color:var(--red)}
+
+  @media(max-width:920px){
+    .navbar a{padding:10px 13px;font-size:.62rem}
+    .lead .cols{column-count:1;column-rule:0}
+    .numbers{grid-template-columns:repeat(2,1fr)}
+    .num:nth-child(2){border-right:0}
+    .num:nth-child(1),.num:nth-child(2){border-bottom:1px solid var(--rule)}
+    .col3{column-count:1;column-rule:0}
+    .feature .body{grid-template-columns:1fr}
+    .feature .body .l{border-right:0;border-bottom:1px solid var(--rule)}
+    .edrow{grid-template-columns:44px 1fr;row-gap:6px}
+    .edrow p{grid-column:1/-1}
+    .corr .body{grid-template-columns:1fr}
+    .corr .body .l{border-right:0;border-bottom:1px solid var(--rule)}
+    section{padding:44px 0 0}
+    .masthead{padding:18px 0 0}
+  }
+</style>
+</head>
+<body>
+
+<div class="strip">
+  <div class="wrap">
+    <span>Vol. I · No. 22</span>
+    <span class="mid">Independent Studio Edition</span>
+    <span>Est. MMXIX</span>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="rules">
+      <h1>Tomasyy<em>.</em></h1>
+      <div class="tagline">Games · Published by the studio</div>
+    </div>
+    <div class="thinrule"></div>
+  </div>
+</header>
+
+<nav class="navbar">
+  <div class="wrap">
+    <a href="#studio">The Studio</a>
+    <a href="#catalogue">Catalogue</a>
+    <a href="#doctrine">Doctrine</a>
+    <a href="#correspondence">Correspondence</a>
+  </div>
+</nav>
+
+<div class="lead">
+  <div class="wrap">
+    <span class="kicker">Lead Story</span>
+    <h2>We publish fewer games, and we finish all of them.</h2>
+    <div class="byline">By the desk at <b>Tomasyy game</b> · Filed 13 November 2026</div>
+
+    <div class="cols">
+      <p>
+        Most studios measure output in titles per year. We measure it in titles we are still
+        willing to put our name on three years later. That number is smaller, and we think it is
+        the more honest one.
+      </p>
+      <p>
+        Tomasyy game is a small independent team building casual games for phones. Our method is
+        unglamorous: prototype quickly, discard most of it, and only carry a game forward when the
+        core loop survives contact with real players rather than our own enthusiasm.
+      </p>
+      <p>
+        Once a game ships, it stays in support. Compatibility patches, balance passes and content
+        updates continue for as long as people are playing — which is a longer horizon than most
+        release calendars assume.
+      </p>
+      <p>
+        The result is a short catalogue. We think that reads as confidence rather than shortage,
+        and we would rather be judged on the games that exist than on the ones we announced.
+      </p>
+    </div>
+
+    <div class="cta">
+      <a class="btn solid" href="#catalogue">Read the catalogue</a>
+      <a class="btn" href="#correspondence">Write to the desk</a>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="numbers">
+    <div class="num"><div class="v">2019</div><div class="k">Established</div></div>
+    <div class="num"><div class="v">17</div><div class="k">Titles Published</div></div>
+    <div class="num"><div class="v">31M</div><div class="k">Installs</div></div>
+    <div class="num"><div class="v">0</div><div class="k">Forced Waits</div></div>
+  </div>
+</div>
+
+<section id="studio">
+  <div class="wrap">
+    <div class="sectionhead">
+      <span class="no">01</span>
+      <h2>The Studio</h2>
+      <span class="sp"></span>
+      <span class="meta">Three desks, one workshop</span>
+    </div>
+    <div class="col3">
+      <div class="story">
+        <span class="tag">Discipline</span>
+        <h3>Design written down first</h3>
+        <p>Every mechanic is specified in plain language before an engineer touches it. If a rule cannot be stated in two sentences, it is not ready to be built.</p>
+      </div>
+      <div class="story">
+        <span class="tag">Evidence</span>
+        <h3>Measured, not assumed</h3>
+        <p>Prototypes ship with instrumentation from the first build. Difficulty is tuned from completion and drop-off data, not from internal opinion.</p>
+      </div>
+      <div class="story">
+        <span class="tag">Upkeep</span>
+        <h3>Supported after launch</h3>
+        <p>A released title keeps receiving compatibility work. A game from 2020 should still open cleanly on a phone bought last month.</p>
+      </div>
+    </div>
+
+    <div class="pullquote">
+      <p>“A game is not finished on the day it appears in a store.”</p>
+      <span class="src">Studio working principle, no. 4</span>
+    </div>
+  </div>
+</section>
+
+<section id="catalogue">
+  <div class="wrap">
+    <div class="sectionhead">
+      <span class="no">02</span>
+      <h2>The Catalogue</h2>
+      <span class="sp"></span>
+      <span class="meta">Selected work</span>
+    </div>
+    <div class="feature">
+      <div class="top">
+        <span class="label">Featured Title</span>
+        <span class="no">No. 22 / 2026</span>
+      </div>
+      <div class="body">
+        <div class="l">
+          <h3>Tomasyy — a puzzle with no clock.</h3>
+          <p>
+            Our flagship release is a hand-authored logic puzzle. There is no timer, no fail
+            state, and no resource that drains while you think. Each board introduces one idea,
+            then asks you to combine it with everything the game has taught you so far.
+          </p>
+          <p>
+            Hints are free and unlimited. Progress is written on every move, and the whole game
+            runs offline — on a plane, in a lift, or on a train that lost signal an hour ago.
+          </p>
+          <div class="tags">
+            <span>Puzzle</span><span>Offline</span><span>No Fail State</span><span>Free to Start</span>
+          </div>
+        </div>
+        <div class="r"><div class="seal">Certified<br>Finished</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="doctrine">
+  <div class="wrap">
+    <div class="sectionhead">
+      <span class="no">03</span>
+      <h2>Doctrine</h2>
+      <span class="sp"></span>
+      <span class="meta">Four rules, not negotiable</span>
+    </div>
+    <div class="edlist">
+      <div class="edrow">
+        <div class="n">I.</div>
+        <h3>No manufactured waiting</h3>
+        <p>Energy bars and cooldowns are not added to games that do not need them. Difficulty belongs in the puzzle, never in the shop.</p>
+      </div>
+      <div class="edrow">
+        <div class="n">II.</div>
+        <h3>Price before the tap</h3>
+        <p>Anything purchasable is priced and described before you commit. No invented countdowns, no recurring “limited” offers.</p>
+      </div>
+      <div class="edrow">
+        <div class="n">III.</div>
+        <h3>Minimal collection</h3>
+        <p>We gather only what is required to run and improve the game, documented plainly in our <a href="/privacy/" style="border-bottom:1px solid var(--red)">privacy policy</a>.</p>
+      </div>
+      <div class="edrow">
+        <div class="n">IV.</div>
+        <h3>Fix before feature</h3>
+        <p>A known crash is repaired before new content starts. A broken build is not a roadmap item — it is a broken product.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="correspondence">
+  <div class="wrap">
+    <div class="sectionhead">
+      <span class="no">04</span>
+      <h2>Correspondence</h2>
+      <span class="sp"></span>
+      <span class="meta">Letters to the desk</span>
+    </div>
+    <div class="corr">
+      <div class="top">
+        <span class="label">Notices</span>
+        <span class="no">Open to all</span>
+      </div>
+      <div class="body">
+        <div class="l">
+          <h3>Write to the studio</h3>
+          <p>
+            Publishers, distribution partners, licensors and players all reach the same desk, and
+            it is read by the people who build the games. Enquiries are answered in the order they
+            arrive.
+          </p>
+        </div>
+        <div class="r">
+          <div class="adbox">
+            <small>General &amp; Player Support</small>
+            <a href="mailto:razadawarmrn@gmail.com">razadawarmrn@gmail.com</a>
+          </div>
+          <div class="adbox">
+            <small>Business &amp; Publishing</small>
+            <a href="mailto:razadawarmrn@gmail.com">razadawarmrn@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="cp">© 2026 Tomasyy game — Printed in-house</div>
+    <nav>
+      <a href="/privacy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Service</a>
+      <a href="#correspondence">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
